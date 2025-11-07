@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+// import "./globals.css";
+import Image from "next/image";
+import Navigation from "./components/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="flex items-center content-center">
+          <Image
+            src="wrkmen_hrms.svg"
+            alt="wkrmnenHrmsLogo"
+            width="80"
+            height="100"
+          />
+          <Navigation />
+        </header>
+        <main>{children}</main>
       </body>
     </html>
   );
